@@ -91,5 +91,47 @@ const makeGuess = function (guessInput) {
 	} else {
 		guessedLetters.push(guessInput);
 		console.log(guessedLetters);
+		pageUpdate();
+		wordInProgressUpdate(guessedLetters);
+	}
+};
+
+// Adds incorrect guessed letters to the page. Based off the content of the guessedLetters array
+const pageUpdate = function () {
+	guessedLettersList.innerHTML = ''; //Clear current list
+	for (const letter of guessedLetters) {
+		const listItem = document.createElement('li');
+		listItem.innerText = letter;
+		guessedLettersList.append(listItem);
+	}
+};
+
+const wordInProgressUpdate = function (
+	guessedLetters
+) {
+	const wordUpper = word.toUpperCase();
+	const wordArray = wordUpper.split('');
+	// console.log(wordArray);
+	const correctGuess = [];
+	for (const letter of wordArray) {
+		if (guessedLetters.includes(letter)) {
+			correctGuess.push(letter.toUpperCase());
+		} else {
+			correctGuess.push('●');
+		}
+	}
+	wordInProgress.innerText =
+		correctGuess.join('');
+	winCondtiion();
+};
+
+const winCondtiion = function () {
+	if (
+		word.toUpperCase() ===
+		wordInProgress.innerText
+	) {
+		guessResponse.classList.add('win');
+		guessResponse.innerText =
+			'You guessed correct the word! Congrats!';
 	}
 };
