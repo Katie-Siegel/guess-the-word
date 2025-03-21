@@ -26,21 +26,33 @@ const playAgain = document.querySelector(
 );
 
 //Starting word for game
-const word = 'magnolia';
+let word = 'magnolia';
 //Starting array for player guesses
 const guessedLetters = [];
+//Staring number of guesses
+let remainingGuessesNumber = 8; //must be "let" so that the variable can be updated
 
-//Determines number of ● displayed instead of letters at start
+//Function to pull a random word list from API
+const getWord = async function () {
+	const res = await fetch(
+		'https://gist.githubusercontent.com/skillcrush-curriculum/7061f1d4d3d5bfe47efbfbcfe42bf57e/raw/5ffc447694486e7dea686f34a6c085ae371b43fe/words.txt'
+	);
+	const data = await res.text();
+	// console.log(data);
+	const wordArray = data.split('\n');
+	// console.log(wordArray);
+	let randomWord =
+		wordArray[
+			Math.floor(Math.random() * wordArray.length)
+		];
+	// console.log(randomWord);
+	word = randomWord.trim();
+	placeholder(word);
+};
 
-//My Original Response
-// const wordLength = function () {
-// 	const number = word.length;
-// 	wordInProgress.innerText = '●'.repeat(number);
-// 	console.log(wordInProgress);
-// };
-// wordLength(word);
+//Start Game
+getWord();
 
-//Skilcrush solution
 // Display our symbol as placeholders for the chosen word's letters
 const placeholder = function (word) {
 	const placeholderLetters = [];
@@ -140,8 +152,6 @@ const winCondtion = function () {
 };
 
 // //Tracks number of guesses and updates players guess status message
-let remainingGuessesNumber = 8; //must be "let" so that the variable can be updated
-
 const guessesRemaining = function (guess) {
 	const wordUpper = word.toUpperCase();
 	const guessUpper = guess.toUpperCase();
