@@ -15,7 +15,7 @@ const wordInProgress = document.querySelector(
 //Selector for the paragraph where remaing guesses are displayed
 const remaingGuesses =
 	document.querySelector('.remaining');
-//Selector for the <span> where guesses are displayed
+//Selector for the <span> where the number of guesses left are displayed
 const span = document.querySelector('span');
 //Selector for guess response paragraph
 const guessResponse =
@@ -91,12 +91,13 @@ const makeGuess = function (guessInput) {
 	} else {
 		guessedLetters.push(guessInput);
 		console.log(guessedLetters);
-		pageUpdate();
 		wordInProgressUpdate(guessedLetters);
+		guessesRemaining(guessInput);
+		pageUpdate();
 	}
 };
 
-// Adds incorrect guessed letters to the page. Based off the content of the guessedLetters array
+// Adds guessed letters to the page. Based off the content of the guessedLetters array
 const pageUpdate = function () {
 	guessedLettersList.innerHTML = ''; //Clear current list
 	for (const letter of guessedLetters) {
@@ -106,6 +107,7 @@ const pageUpdate = function () {
 	}
 };
 
+//Updates answer display when a correct letter is guessed and checks for winCondition()
 const wordInProgressUpdate = function (
 	guessedLetters
 ) {
@@ -122,10 +124,11 @@ const wordInProgressUpdate = function (
 	}
 	wordInProgress.innerText =
 		correctGuess.join('');
-	winCondtiion();
+	winCondtion();
 };
 
-const winCondtiion = function () {
+//Determines if the player has completed the word
+const winCondtion = function () {
 	if (
 		word.toUpperCase() ===
 		wordInProgress.innerText
@@ -133,5 +136,24 @@ const winCondtiion = function () {
 		guessResponse.classList.add('win');
 		guessResponse.innerText =
 			'You guessed correct the word! Congrats!';
+	}
+};
+
+// //Tracks number of guesses and updates players guess status message
+let remainingGuessesNumber = 8; //must be "let" so that the variable can be updated
+
+const guessesRemaining = function (guess) {
+	const wordUpper = word.toUpperCase();
+	const guessUpper = guess.toUpperCase();
+	if (wordUpper.includes(guessUpper)) {
+		guessResponse.innerText = `That's right!`;
+	} else {
+		guessResponse.innerText = `There's no ${guess} in this word`;
+		remainingGuessesNumber -= 1;
+	}
+	if (remainingGuessesNumber === 0) {
+		guessResponse.innerText = `Game Over. Your word was ${word}`;
+	} else {
+		span.innerText = `${remainingGuessesNumber} guesses`;
 	}
 };
