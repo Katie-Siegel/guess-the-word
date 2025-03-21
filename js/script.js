@@ -148,6 +148,7 @@ const winCondtion = function () {
 		guessResponse.classList.add('win');
 		guessResponse.innerText =
 			'You guessed correct the word! Congrats!';
+		startOver();
 	}
 };
 
@@ -163,7 +164,17 @@ const guessesRemaining = function (guess) {
 	}
 	if (remainingGuessesNumber === 0) {
 		guessResponse.innerText = `Game Over. Your word was ${word}`;
+		span.innerText = `${remainingGuessesNumber} guesses`;
+		startOver();
 	} else {
 		span.innerText = `${remainingGuessesNumber} guesses`;
 	}
+};
+
+//Start game over without reloading window
+const startOver = function () {
+	button.classList.add('hide');
+	remaingGuesses.classList.add('hide');
+	guessedLettersList.classList.add('hide');
+	playAgain.classList.remove('hide');
 };
