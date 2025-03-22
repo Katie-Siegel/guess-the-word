@@ -25,12 +25,15 @@ const playAgain = document.querySelector(
 	'.play-again'
 );
 
+//////////////////////////////// Global Variables - Used in Funcations
 //Starting word for game
 let word = 'magnolia';
 //Starting array for player guesses
-const guessedLetters = [];
+let guessedLetters = [];
 //Staring number of guesses
 let remainingGuessesNumber = 8; //must be "let" so that the variable can be updated
+
+/////////////////////////////////  Active Functions  ////////////////////////////////
 
 //Function to pull a random word list from API
 const getWord = async function () {
@@ -178,3 +181,18 @@ const startOver = function () {
 	guessedLettersList.classList.add('hide');
 	playAgain.classList.remove('hide');
 };
+
+//Activation buttion for Play Again reset
+playAgain.addEventListener('click', function (e) {
+	guessResponse.classList.remove('win');
+	guessResponse.innerText = '';
+	guessedLettersList.innerHTML = '';
+	remainingGuessesNumber = 8;
+	guessedLetters = [];
+	span.innerText = `${remainingGuessesNumber} guesses`;
+	button.classList.remove('hide');
+	remaingGuesses.classList.remove('hide');
+	guessedLettersList.classList.remove('hide');
+	playAgain.classList.add('hide');
+	getWord();
+});
