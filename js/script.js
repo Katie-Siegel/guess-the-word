@@ -155,7 +155,7 @@ const winCondtion = function () {
 	}
 };
 
-// //Tracks number of guesses and updates players guess status message
+// Tracks number of guesses and updates players guess status message
 const guessesRemaining = function (guess) {
 	const wordUpper = word.toUpperCase();
 	const guessUpper = guess.toUpperCase();
