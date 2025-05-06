@@ -24,6 +24,11 @@ const guessResponse =
 const playAgain = document.querySelector(
 	'.play-again'
 );
+//Selector for win gif
+const winGif = document.querySelector('.win-gif');
+//Selector for lost gif
+const lostGif =
+	document.querySelector('.lost-gif');
 
 //////////////////////////////// Global Variables - Used in Funcations
 //Starting word for game
@@ -151,6 +156,7 @@ const winCondtion = function () {
 		guessResponse.classList.add('win');
 		guessResponse.innerText =
 			'You guessed correct the word! Congrats!';
+		winGif.classList.remove('hide');
 		startOver();
 	}
 };
@@ -166,8 +172,10 @@ const guessesRemaining = function (guess) {
 		remainingGuessesNumber -= 1;
 	}
 	if (remainingGuessesNumber === 0) {
+		guessResponse.classList.add('lost');
 		guessResponse.innerText = `Game Over. Your word was ${word}`;
 		span.innerText = `${remainingGuessesNumber} guesses`;
+		lostGif.classList.remove('hide');
 		startOver();
 	} else {
 		span.innerText = `${remainingGuessesNumber} guesses`;
@@ -180,6 +188,13 @@ const startOver = function () {
 	remaingGuesses.classList.add('hide');
 	guessedLettersList.classList.add('hide');
 	playAgain.classList.remove('hide');
+	if (guessResponse.classList.add('win')) {
+		guessResponse.classList.remove('win');
+		winGif.classList.add('hide');
+	} else {
+		guessResponse.classList.remove('lost');
+		lostGif.classList.add('hide');
+	}
 };
 
 //Activation buttion for Play Again reset
