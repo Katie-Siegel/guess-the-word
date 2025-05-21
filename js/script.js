@@ -193,6 +193,7 @@ const startOver = function () {
 //Activation buttion for Play Again reset
 playAgain.addEventListener('click', function (e) {
 	guessResponse.classList.remove('win');
+	guessResponse.classList.remove('lost');
 	guessResponse.innerText = '';
 	guessedLettersList.innerHTML = '';
 	remainingGuessesNumber = 8;
