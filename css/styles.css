@@ -147,24 +147,38 @@ input:focus {
 	filter: brightness(0.9);
 }
 
-/* animatied background */
+/* Result conditions*/
+
+img {
+	height: 20em;
+}
+
+.stand-out {
+	font-weight: bolder;
+	color: #ee227d;
+}
+
 .win {
+	font-size: 2em;
 	padding: 0 1em;
+	border-radius: 15px;
 	line-height: 150%;
 	background: linear-gradient(
 		-45deg,
-		#ff9d64,
-		#f5620c
+		#ee227d,
+		#30c0b7
 	);
 }
 
 .lost {
+	font-size: 2em;
 	padding: 0 1em;
+	border-radius: 15px;
 	line-height: 150%;
 	background: linear-gradient(
 		-45deg,
-		blue,
-		green
+		#30c0b7,
+		#ee227d
 	);
 }
 
