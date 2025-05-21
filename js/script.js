@@ -24,8 +24,13 @@ const guessResponse =
 const playAgain = document.querySelector(
 	'.play-again'
 );
+//Selector for win gif
+const winGif = document.querySelector('.win-gif');
+//Selector for lost gif
+const lostGif =
+	document.querySelector('.lost-gif');
 
-//////////////////////////////// Global Variables - Used in Funcations
+///  Global Variables - Used in Funcations  ///
 //Starting word for game
 let word = 'magnolia';
 //Starting array for player guesses
@@ -33,7 +38,7 @@ let guessedLetters = [];
 //Staring number of guesses
 let remainingGuessesNumber = 8; //must be "let" so that the variable can be updated
 
-/////////////////////////////////  Active Functions  ////////////////////////////////
+///  Active Functions  ///
 
 //Function to pull a random word list from API
 const getWord = async function () {
@@ -150,12 +155,13 @@ const winCondtion = function () {
 	) {
 		guessResponse.classList.add('win');
 		guessResponse.innerText =
-			'You guessed correct the word! Congrats!';
+			'Omigod! You guessed correct the word! Wicked!';
+		winGif.classList.remove('hide');
 		startOver();
 	}
 };
 
-// //Tracks number of guesses and updates players guess status message
+// Tracks number of guesses and updates players guess status message
 const guessesRemaining = function (guess) {
 	const wordUpper = word.toUpperCase();
 	const guessUpper = guess.toUpperCase();
@@ -166,8 +172,10 @@ const guessesRemaining = function (guess) {
 		remainingGuessesNumber -= 1;
 	}
 	if (remainingGuessesNumber === 0) {
-		guessResponse.innerText = `Game Over. Your word was ${word}`;
+		guessResponse.classList.add('lost');
+		guessResponse.innerHTML = `Game Over. Major Bummer. <br>Your word was <span class="stand-out">${word}</span>.`;
 		span.innerText = `${remainingGuessesNumber} guesses`;
+		lostGif.classList.remove('hide');
 		startOver();
 	} else {
 		span.innerText = `${remainingGuessesNumber} guesses`;
@@ -194,5 +202,7 @@ playAgain.addEventListener('click', function (e) {
 	remaingGuesses.classList.remove('hide');
 	guessedLettersList.classList.remove('hide');
 	playAgain.classList.add('hide');
+	winGif.classList.add('hide');
+	lostGif.classList.add('hide');
 	getWord();
 });
