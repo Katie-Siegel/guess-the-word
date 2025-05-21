@@ -28,9 +28,9 @@ body {
 
 h1 {
 	width: 100%;
-	padding-top: 2.1em;
+	padding-top: 0;
 	margin: 0;
-	font-size: 3.3em;
+	font-size: 3.7em;
 	text-align: center;
 	font-family: 'Nabla', system-ui;
 	font-optical-sizing: auto;
@@ -150,7 +150,7 @@ input:focus {
 /* Result conditions*/
 
 img {
-	height: 20em;
+	height: 15em;
 }
 
 .stand-out {

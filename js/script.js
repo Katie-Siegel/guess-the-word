@@ -173,7 +173,7 @@ const guessesRemaining = function (guess) {
 	}
 	if (remainingGuessesNumber === 0) {
 		guessResponse.classList.add('lost');
-		guessResponse.innerHTML = `Game Over. Major Bummer. Your word was <span class="stand-out">${word}</span>.`;
+		guessResponse.innerHTML = `Game Over. Major Bummer. <br>Your word was <span class="stand-out">${word}</span>.`;
 		span.innerText = `${remainingGuessesNumber} guesses`;
 		lostGif.classList.remove('hide');
 		startOver();
