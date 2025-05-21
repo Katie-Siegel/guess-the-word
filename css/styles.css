@@ -73,8 +73,13 @@ h1 {
 }
 
 .remaining {
+	color: #f05299;
+	background-color: #30c0b7;
+	border-radius: 15px;
+	padding: 0.3em;
+	font-weight: 700;
 	line-height: 1.6em;
-	font-size: 0.8em;
+	font-size: 1em;
 }
 
 .guessed-letters {
@@ -96,6 +101,7 @@ h1 {
 }
 
 .guess-form {
+	margin-top: 1em;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -150,7 +156,7 @@ input:focus {
 /* Result conditions*/
 
 img {
-	height: 15em;
+	height: 10em;
 }
 
 .stand-out {
