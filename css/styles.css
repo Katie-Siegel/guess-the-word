@@ -18,7 +18,7 @@ body {
 }
 
 .body-image {
-	background: url('../img/bradley-plester-retroscene-1536x864.jpg')
+	background: url('../img/background-image.gif')
 		#20c6e4 no-repeat;
 	background-size: cover;
 	background-position: center;
