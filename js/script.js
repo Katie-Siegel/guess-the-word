@@ -144,18 +144,17 @@ const wordInProgressUpdate = function (
 	}
 	wordInProgress.innerText =
 		correctGuess.join('');
-	winCondtion();
+	winCondition();
 };
 
 //Determines if the player has completed the word
-const winCondtion = function () {
+const winCondition = function () {
 	if (
 		word.toUpperCase() ===
 		wordInProgress.innerText
 	) {
 		guessResponse.classList.add('win');
-		guessResponse.innerText =
-			'Omigod! You guessed correct the word! Wicked!';
+		guessResponse.innerText = `Omigod! You guessed the correct word! Wicked!`;
 		winGif.classList.remove('hide');
 		startOver();
 	}
@@ -180,6 +179,7 @@ const guessesRemaining = function (guess) {
 	} else {
 		span.innerText = `${remainingGuessesNumber} guesses`;
 	}
+	winCondition();
 };
 
 //Start game over without reloading window
