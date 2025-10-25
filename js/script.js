@@ -36,7 +36,8 @@ let word = 'magnolia';
 //Starting array for player guesses
 let guessedLetters = [];
 //Staring number of guesses
-let remainingGuessesNumber = 8; //must be "let" so that the variable can be updated
+let remainingGuessesNumber = 8;
+//must be "let" so that the variable can be updated
 
 ///  Active Functions  ///
 
@@ -76,12 +77,19 @@ placeholder(word);
 
 //Activates operations connected to the "Guess!" button
 button.addEventListener('click', function (e) {
-	e.preventDefault(); //prevents page from reloading everytime button is pressed
-	const guess = guessInput.value; //Detects the value entered into the input box
-	// console.log(input);
+	e.preventDefault();
+	//prevents page from reloading everytime button is pressed
+	guessResponse.innerText = "";
+	//Begins input with a cleared box
+	const guess = guessInput.value;
+	//Detects the value entered into the input box
 	const goodGuess = valueCheck(guess);
-	makeGuess(goodGuess);
-	guessInput.value = ''; //Clears the input box
+	if (goodGuess) {
+		makeGuess(guess);
+	}
+	//Checks that the value is valid before adding it to the array
+	guessInput.value = '';
+	//Clears the input box
 });
 
 //Check's that the input is a letter
@@ -119,7 +127,8 @@ const makeGuess = function (guessInput) {
 
 // Adds guessed letters to the page. Based off the content of the guessedLetters array
 const pageUpdate = function () {
-	guessedLettersList.innerHTML = ''; //Clear current list
+	guessedLettersList.innerHTML = '';
+	//Clear current list
 	for (const letter of guessedLetters) {
 		const listItem = document.createElement('li');
 		listItem.innerText = letter;
