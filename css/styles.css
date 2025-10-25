@@ -1,3 +1,4 @@
+/*-------------------- Mobile Styles - General Styles --------------------*/
 * {
 	box-sizing: border-box;
 }
@@ -28,10 +29,11 @@ body {
 
 h1 {
 	width: 100%;
-	padding-top: 0;
-	margin: 0;
-	font-size: 3.7em;
-	text-align: center;
+	padding: 0 30px 0 20px;
+	margin: 20px 0;
+	font-size: 4rem;
+	line-height: 4.5rem;
+	text-align:start;
 	font-family: 'Nabla', system-ui;
 	font-optical-sizing: auto;
 	font-weight: 400;
@@ -49,7 +51,9 @@ h1 {
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
+	flex-wrap: wrap;
 	width: 90%;
+	height: auto;
 }
 
 .hide {
@@ -85,19 +89,21 @@ h1 {
 .guessed-letters {
 	padding: 0;
 	list-style: none;
+	line-height: 1em;
 }
 
 .guessed-letters li {
 	display: inline-block;
-	padding: 0 0.4em;
+	padding: .2em .4em;
 	font-weight: bolder;
-	font-size: 1.2em;
+	font-size: 1em;
 }
 
 .message {
 	text-align: center;
+	line-height: 1.5em;
 	padding: 1em;
-	margin-top: 2.5em;
+	margin-top: 1.5em;
 }
 
 .guess-form {
@@ -117,8 +123,9 @@ input {
 	width: 2.25em;
 	text-align: center;
 	font-size: 1.5em;
+	line-height: 1.5em;
 	margin-top: 1em;
-	padding: 0.5em;
+	padding: 0.25em;
 	border: 4px solid #ffffff;
 }
 
@@ -132,7 +139,7 @@ input:focus {
 .play-again {
 	padding: 1em 3em;
 	border-radius: 50px;
-	margin-top: 1em;
+	margin: 1em 0 2em 0;
 	color: black;
 	background: #30c0b7;
 	font-size: 1em;
@@ -153,10 +160,11 @@ input:focus {
 	filter: brightness(0.9);
 }
 
-/* Result conditions*/
+/*-------------------- Mobile Styles - Result Conditions ---------------------*/
 
-img {
-	height: 10em;
+.container img {
+	max-width: 100%;
+	height: auto;
 }
 
 .stand-out {
@@ -165,8 +173,8 @@ img {
 }
 
 .win {
-	font-size: 2em;
-	padding: 0 1em;
+	font-size: 1.6em;
+	padding: .5em .4em;
 	border-radius: 15px;
 	line-height: 150%;
 	background: linear-gradient(
@@ -177,8 +185,10 @@ img {
 }
 
 .lost {
-	font-size: 2em;
-	padding: 0 1em;
+	width: 80%;
+	font-size: 1.5em;
+	padding: .5em .4em;
+	margin-top: .5em;
 	border-radius: 15px;
 	line-height: 150%;
 	background: linear-gradient(
@@ -188,16 +198,129 @@ img {
 	);
 }
 
-/* @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
+/* ==========================================================================
+							MEDIA QUERIES
+   ========================================================================== */
 
-	50% {
-		background-position: 100% 50%;
-	}
+@media only screen and (min-width: 768px) {
+	/* Tablet Styles Here */
 
-	100% {
-		background-position: 0% 50%;
-	}
-} */
+	/*-------------------- Tablet Styles - General Styles --------------------*/
+
+h1 {
+	padding-bottom: 4rem;
+	margin: 0;
+	font-size: 8rem;
+	line-height: 8.5rem;
+}
+
+.container {
+	justify-content:flex-start;}
+
+
+
+.word-in-progress {
+	letter-spacing: 1.5rem;
+	font-size: 2.5rem;
+}
+
+.remaining {
+	line-height: 2.5rem;
+	font-size: 2.2rem;
+}
+
+.guessed-letters li {
+	padding: 0 0.4em;
+	font-size: 2.2rem;
+}
+
+.message {
+	padding: 1em;
+	margin-top: 2.5rem;
+	font-size: 2.5rem;
+}
+
+.guess-form label {
+	font-size: 1.5em;
+}
+
+input {
+	font-size: 2em;
+	margin-top: 1em;
+	padding: 0.5em;
+}
+
+.guess,
+.play-again {
+	margin-top: 1em;
+	font-size: 1.5em;
+}
+
+/*-------------------- Tablet Styles - Result Conditions ---------------------*/
+
+.win {
+	font-size: 2.2em;
+	padding: .5em 1em;
+}
+
+.lost {
+	font-size: 2.2em;
+	padding: .5em 1em;
+
+}
+
+
+@media only screen and (min-width: 1200px) {
+	/* Desktop Styles Here */
+
+	/*-------------------- Desktop Styles - General Styles --------------------*/
+h1 {
+	padding-top: 0;
+	margin: 0;
+	font-size: 5em;
+	text-align: center;
+}
+
+
+.word-in-progress {
+	letter-spacing: 1em;
+	font-size: 2em;
+	margin: 25px 0 35px 0;
+}
+
+.remaining {
+	line-height: 1.4em;
+	font-size: 1.2em;
+}
+
+.guessed-letters li {
+	font-size: 1.2em;
+}
+
+.message {
+	font-size: 1.5em;
+}
+
+input {
+	margin-top: .75em;
+	padding: 0.5em;
+}
+
+.guess,
+.play-again {
+	margin-top: 1em;
+}
+
+/*-------------------- Desktop Styles - Result Conditions ---------------------*/
+
+.win {
+	font-size: 2em;
+	padding: 0 1em;
+}
+
+.lost {
+	font-size: 2em;
+	padding: 0 1em;
+}
+}
+}
