@@ -78,7 +78,8 @@ h1 {
 
 .remaining {
 	color: #f05299;
-	background-color: #30c0b7;
+	background-color: #0C2C2B;
+	border: 3px solid #30c0b7;
 	border-radius: 15px;
 	padding: 0.3em;
 	font-weight: 700;
