@@ -1,4 +1,3 @@
-/*-------------------- Mobile Styles - General Styles --------------------*/
 * {
 	box-sizing: border-box;
 }
@@ -35,7 +34,6 @@ h1 {
 	line-height: 4.5rem;
 	text-align:start;
 	font-family: 'Nabla', system-ui;
-	font-optical-sizing: auto;
 	font-weight: 400;
 	font-style: normal;
 	font-variation-settings: 'EDPT' 100, 'EHLT' 12;
@@ -78,7 +76,8 @@ h1 {
 
 .remaining {
 	color: #f05299;
-	background-color: #30c0b7;
+	background-color: #0C2C2B;
+	border: 3px solid #30c0b7;
 	border-radius: 15px;
 	padding: 0.3em;
 	font-weight: 700;
@@ -160,8 +159,6 @@ input:focus {
 	filter: brightness(0.9);
 }
 
-/*-------------------- Mobile Styles - Result Conditions ---------------------*/
-
 .container img {
 	max-width: 100%;
 	height: auto;
@@ -198,14 +195,7 @@ input:focus {
 	);
 }
 
-/* ==========================================================================
-							MEDIA QUERIES
-   ========================================================================== */
-
 @media only screen and (min-width: 768px) {
-	/* Tablet Styles Here */
-
-	/*-------------------- Tablet Styles - General Styles --------------------*/
 
 h1 {
 	padding-bottom: 4rem;
@@ -256,8 +246,6 @@ input {
 	font-size: 1.5em;
 }
 
-/*-------------------- Tablet Styles - Result Conditions ---------------------*/
-
 .win {
 	font-size: 2.2em;
 	padding: .5em 1em;
@@ -268,19 +256,17 @@ input {
 	padding: .5em 1em;
 
 }
+}
 
 
 @media only screen and (min-width: 1200px) {
-	/* Desktop Styles Here */
 
-	/*-------------------- Desktop Styles - General Styles --------------------*/
 h1 {
 	padding-top: 0;
 	margin: 0;
 	font-size: 5em;
 	text-align: center;
 }
-
 
 .word-in-progress {
 	letter-spacing: 1em;
@@ -311,8 +297,6 @@ input {
 	margin-top: 1em;
 }
 
-/*-------------------- Desktop Styles - Result Conditions ---------------------*/
-
 .win {
 	font-size: 2em;
 	padding: 0 1em;
@@ -321,6 +305,5 @@ input {
 .lost {
 	font-size: 2em;
 	padding: 0 1em;
-}
 }
 }
